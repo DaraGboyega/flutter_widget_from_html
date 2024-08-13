@@ -38,7 +38,8 @@ import 'package:flutter/widgets.dart' as flutter show Flex;
 class HtmlFlex extends MultiChildRenderObjectWidget
     implements
         // ignore: avoid_implementing_value_types
-        flutter.Flex {
+        flutter.Flex
+         {
   const HtmlFlex({
     super.key,
     required this.direction,
@@ -48,6 +49,7 @@ class HtmlFlex extends MultiChildRenderObjectWidget
     this.textDirection,
     this.verticalDirection = VerticalDirection.down,
     this.textBaseline, // NO DEFAULT: we don't know what the text's baseline should be
+    
     this.clipBehavior = Clip.none,
     super.children,
   }) : assert(
@@ -142,6 +144,9 @@ class HtmlFlex extends MultiChildRenderObjectWidget
     properties.add(EnumProperty<TextBaseline>('textBaseline', textBaseline,
         defaultValue: null));
   }
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
 
 bool? _startIsTopLeft(Axis direction, TextDirection? textDirection,
@@ -1108,6 +1113,9 @@ class _HtmlFlexRenderObject extends RenderBox
     properties.add(EnumProperty<TextBaseline>('textBaseline', textBaseline,
         defaultValue: null));
   }
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
 
 class _LayoutSizes {
